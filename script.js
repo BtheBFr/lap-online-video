@@ -85,12 +85,13 @@ async function initPeerConnection() {
     try {
         // Используем бесплатный PeerJS сервер
         peer = new Peer(roomId, {
-            host: '0.peerjs.com',
+            host: 'peerjs-server-production-b727.up.railway.app',
             port: 443,
-            path: '/',
+            path: '/peerjs',
+            secure: true,
             debug: 3
         });
-        
+            
         peer.on('open', (id) => {
             console.log('Peer соединение установлено. ID:', id);
             currentPeerId = id;
